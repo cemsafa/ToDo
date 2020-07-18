@@ -42,7 +42,6 @@ class ToDoListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         saveItems()
-        tableView.reloadData()
         
     }
     
@@ -64,7 +63,6 @@ class ToDoListViewController: UITableViewController {
             newItem.done = false
             self.itemArray.append(newItem)
             self.saveItems()
-            self.tableView.reloadData()
         }
         
         alert.addAction(action)
@@ -79,14 +77,26 @@ class ToDoListViewController: UITableViewController {
         } catch {
             print(error.localizedDescription)
         }
+        tableView.reloadData()
     }
     
-    func loadItems() {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
         do {
             itemArray = try context.fetch(request)
         } catch {
             print(error.localizedDescription)
         }
+        tableView.reloadData()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension ToDoListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        loadItems(with: request)
     }
 }
