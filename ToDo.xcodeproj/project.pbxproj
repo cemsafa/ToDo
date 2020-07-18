@@ -17,6 +17,7 @@
 		B115F92B24C311BC00A39CD2 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B115F92A24C311BC00A39CD2 /* CategoryViewController.swift */; };
 		B15F883124C34D2A001A760A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15F883024C34D2A001A760A /* Item.swift */; };
 		B15F883324C34D3A001A760A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15F883224C34D3A001A760A /* Category.swift */; };
+		B15F883524C37471001A760A /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15F883424C37471001A760A /* SwipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B115F92A24C311BC00A39CD2 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		B15F883024C34D2A001A760A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B15F883224C34D3A001A760A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B15F883424C37471001A760A /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				B115F92A24C311BC00A39CD2 /* CategoryViewController.swift */,
 				B115F8F824C2CA7400A39CD2 /* ToDoListViewController.swift */,
+				B15F883424C37471001A760A /* SwipeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				B115F8F924C2CA7400A39CD2 /* ToDoListViewController.swift in Sources */,
 				B15F883124C34D2A001A760A /* Item.swift in Sources */,
 				B115F8E724C2C96B00A39CD2 /* SceneDelegate.swift in Sources */,
+				B15F883524C37471001A760A /* SwipeViewController.swift in Sources */,
 				B15F883324C34D3A001A760A /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
