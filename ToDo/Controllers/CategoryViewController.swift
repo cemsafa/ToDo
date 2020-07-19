@@ -22,7 +22,10 @@ class CategoryViewController: SwipeViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         guard let navBar = navigationController?.navigationBar else { return }
-        navBar.backgroundColor = UIColor(hexString: "1D9BF6")
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.backgroundColor = UIColor(hexString: "1D9BF6")
+        navBar.standardAppearance = navBarAppearance
+        navBar.scrollEdgeAppearance = navBarAppearance
     }
 
     // MARK: - Table view data source
@@ -33,10 +36,11 @@ class CategoryViewController: SwipeViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        let category = categories?[indexPath.row]
-        cell.textLabel?.text = category?.name ?? "No categories"
-        cell.backgroundColor = UIColor(hexString: category?.cellColor ?? "1D9BF6")
-        cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
+        if let category = categories?[indexPath.row] {
+            cell.textLabel?.text = category.name
+            cell.backgroundColor = UIColor(hexString: category.cellColor)
+            cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
+        }
         return cell
     }
     

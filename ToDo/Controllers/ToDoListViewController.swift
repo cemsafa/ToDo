@@ -30,9 +30,13 @@ class ToDoListViewController: SwipeViewController {
             title = selectedCategory!.name
             guard let navBar = navigationController?.navigationBar else { return }
             if let navBarColor = UIColor(hexString: colorHex) {
-                navBar.backgroundColor = navBarColor
+                let navBarAppearance = UINavigationBarAppearance()
+                navBarAppearance.backgroundColor = navBarColor
+                navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+                navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+                navBar.standardAppearance = navBarAppearance
+                navBar.scrollEdgeAppearance = navBarAppearance
                 navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
-                navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
                 searchBar.barTintColor = navBarColor
             }
         }
